@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class Unit1Exercise {
@@ -22,18 +23,19 @@ public class Unit1Exercise {
 		Collections.sort(people, (p1, p2) -> p1.getSecondName().compareTo(p2.getSecondName()));
 		
 		//Step 2: Create a method that prints all elements in list
-		printConditionally(people, p -> true);
+		performConditionally(people, p -> true, p -> System.out.println(p));
 		
 		System.out.println("----------------------");
 		//Step 2: Create a method that prints all elements in the list with last name beginning with C
-		printConditionally(people, p -> p.getSecondName().startsWith("C"));
+		performConditionally(people, p -> p.getSecondName().startsWith("C"), p -> System.out.println(p));
 	}
 
 	//predicate is readily available with method which takes object and returns boolean in Java 8, name of the method is test in predicate interface
-	private static void printConditionally(List<Person> people, Predicate<Person> predicate) {
+	//Consumer interface has a method to accept object and return void
+	private static void performConditionally(List<Person> people, Predicate<Person> predicate, Consumer<Person> consumer) {
 		for (Person p : people)
 			if (predicate.test(p))
-				System.out.println(p);
+				consumer.accept(p);
 	}
 
 }
