@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Unit1Exercise {
 
@@ -28,14 +29,12 @@ public class Unit1Exercise {
 		printConditionally(people, p -> p.getSecondName().startsWith("C"));
 	}
 
-	private static void printConditionally(List<Person> people, Condition1 condition) {
+	//predicate is readily available with method which takes object and returns boolean in Java 8, name of the method is test in predicate interface
+	private static void printConditionally(List<Person> people, Predicate<Person> predicate) {
 		for (Person p : people)
-			if (condition.test(p))
+			if (predicate.test(p))
 				System.out.println(p);
 	}
 
 }
 
-interface Condition1 {
-	boolean test(Person p);
-}
