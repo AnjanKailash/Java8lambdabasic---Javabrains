@@ -19,6 +19,7 @@ public class MethodReferenceExample1 {
 		//in case of instance method with one argument
 		printConditionally("String1", p -> System.out.println(p));
 		printConditionally("Abc", System.out::println); //both are same
+		//System.out is instance of out variable(reference of print stream class) in static System class, so while calling it we used reference
 		
 	}
 	
