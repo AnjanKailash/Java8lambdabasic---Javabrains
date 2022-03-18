@@ -3,7 +3,7 @@ package io.javabrains.unit3;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class MethodReferenceExample1 {
+public class MethodReferenceExample {
 
 	public static void main(String[] args) {
 		
@@ -13,7 +13,7 @@ public class MethodReferenceExample1 {
 		//instead of above we can use below called method reference
 		//this is done when input parameters to lambda is same as input parameters of method we want to call
 		
-		Thread t2 = new Thread(MethodReferenceExample1::printMessage); //as this is static we used class name directly
+		Thread t2 = new Thread(MethodReferenceExample::printMessage); //as this is static we used class name directly
 		t2.start();
 		
 		//in case of instance method with one argument
